@@ -24,6 +24,7 @@ public class WeatherForecast {
     }
 
     public Double average(){
+
         return 0.0;
     }
 
