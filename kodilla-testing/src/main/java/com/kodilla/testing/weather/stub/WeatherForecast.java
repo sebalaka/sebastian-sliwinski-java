@@ -22,4 +22,12 @@ public class WeatherForecast {
         }
         return resultMap;
     }
+
+    public Double average(){
+        return 0.0;
+    }
+
+    public Double median(){
+        return 0.0;
+    }
 }

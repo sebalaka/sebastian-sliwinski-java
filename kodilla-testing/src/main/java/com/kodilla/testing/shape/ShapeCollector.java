@@ -11,16 +11,16 @@ public class ShapeCollector {
         return shapeCollection;
     }
 
-    public int addFigure(Shape shape){
-        return 100;
+    public void addFigure(Shape shape){
+
     }
 
-    public int removeFigure(Shape shape){
-        return 100;
+    public boolean removeFigure(Shape shape){
+        return false;
     }
 
-    public int getFigure(int n){
-        return 100;
+    public Shape getFigure(int n){
+        return null;
     }
 
 //    public String showFigures(){
