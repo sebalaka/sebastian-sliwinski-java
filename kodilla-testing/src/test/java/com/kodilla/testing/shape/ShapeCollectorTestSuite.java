@@ -78,7 +78,7 @@ public class ShapeCollectorTestSuite {
         Shape result = shapeCollector.getFigure(-1);
 
         //Then
-        Assertions.assertEquals(null, result);
+        Assertions.assertNull( result);
     }
 
     @Test
@@ -93,7 +93,7 @@ public class ShapeCollectorTestSuite {
         Shape result = shapeCollector.getFigure(7);
 
         //Then
-        Assertions.assertEquals(null, result);
+        Assertions.assertNull( result);
 
     }}
 }
