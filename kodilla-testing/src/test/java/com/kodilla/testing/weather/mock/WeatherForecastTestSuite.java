@@ -50,10 +50,10 @@ class WeatherForecastTestSuite {
 //        WeatherForecast weatherForecast = new WeatherForecast(temperaturesMock);
 //
 //        //When
-//        double quantityOfSensors = weatherForecast.average();
+//        double averageTemperature = weatherForecast.average();
 //
 //        //Then
-//        Assertions.assertEquals(25.0, quantityOfSensors);
+//        Assertions.assertEquals(25.0, averageTemperature);
 //    }
 //
 //    @Test
