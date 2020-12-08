@@ -20,27 +20,27 @@ public class calculateAdvStatistics {
         return this.statistics.commentsCount();
     }
 
-    public double averagePostPerUser(double postsQuantity, double usersQuantity) {
-        if (usersQuantity == 0) {
+    public double averagePostPerUser() {
+        if (getUserCount() == 0) {
             return 0;
         } else {
-            return postsQuantity / usersQuantity;
+            return getPostsCount() / getUserCount();
         }
     }
 
-    public double averageCommentsPerUser(double commentsQuantity, double usersQuantity) {
-        if (usersQuantity == 0) {
+    public double averageCommentsPerUser() {
+        if (getUserCount() == 0) {
             return 0;
         } else {
-            return commentsQuantity / usersQuantity;
+            return getCommentsCount() / getUserCount();
         }
     }
 
-    public double averageCommentsPerPost(double commentsQuantity, double postsQuantity) {
-        if (postsQuantity == 0) {
+    public double averageCommentsPerPost() {
+        if (getPostsCount() == 0) {
             return 0;
         } else {
-            return commentsQuantity / postsQuantity;
+            return getCommentsCount() / getPostsCount();
         }
     }
 }

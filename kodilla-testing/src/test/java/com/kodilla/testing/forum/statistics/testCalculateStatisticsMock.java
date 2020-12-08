@@ -21,9 +21,9 @@ public class testCalculateStatisticsMock {
         //when
         when(statisticsMock.postsCount()).thenReturn(0);
         //then
-        Assertions.assertEquals(0, cas.averagePostPerUser(cas.getPostsCount(), cas.getUserCount()), 0);
-        Assertions.assertEquals(0, cas.averageCommentsPerUser(cas.getCommentsCount(), cas.getUserCount()), 0);
-        Assertions.assertEquals(0, cas.averageCommentsPerPost(cas.getCommentsCount(), cas.getPostsCount()), 0);
+        Assertions.assertEquals(0, cas.averagePostPerUser(), 0);
+        Assertions.assertEquals(0, cas.averageCommentsPerUser(), 0);
+        Assertions.assertEquals(0, cas.averageCommentsPerPost(), 0);
     }
 
     @Test
@@ -39,9 +39,9 @@ public class testCalculateStatisticsMock {
         //when
         when(statisticsMock.postsCount()).thenReturn(1000);
         //then
-        Assertions.assertEquals(500, cas.averagePostPerUser(cas.getPostsCount(), cas.getUserCount()), 0);
-        Assertions.assertEquals(0, cas.averageCommentsPerPost(cas.getCommentsCount(), cas.getPostsCount()), 0);
-        Assertions.assertEquals(0, cas.averageCommentsPerUser(cas.getCommentsCount(), cas.getUserCount()), 0);
+        Assertions.assertEquals(500, cas.averagePostPerUser(), 0);
+        Assertions.assertEquals(0, cas.averageCommentsPerPost(), 0);
+        Assertions.assertEquals(0, cas.averageCommentsPerUser(), 0);
     }
 
     @Test
@@ -57,9 +57,9 @@ public class testCalculateStatisticsMock {
         //when
         when(statisticsMock.commentsCount()).thenReturn(0);
         //then
-        Assertions.assertEquals(0, cas.averageCommentsPerUser(cas.getCommentsCount(), cas.getUserCount()), 0);
-        Assertions.assertEquals(0, cas.averageCommentsPerPost(cas.getCommentsCount(), cas.getPostsCount()), 0);
-        Assertions.assertEquals(5, cas.averagePostPerUser(cas.getPostsCount(), cas.getUserCount()), 0);
+        Assertions.assertEquals(0, cas.averageCommentsPerUser(), 0);
+        Assertions.assertEquals(0, cas.averageCommentsPerPost(), 0);
+        Assertions.assertEquals(5, cas.averagePostPerUser(), 0);
     }
 
     @Test
@@ -75,9 +75,9 @@ public class testCalculateStatisticsMock {
         //when
         when(statisticsMock.commentsCount()).thenReturn(10);
         //then
-        Assertions.assertEquals(5, cas.averageCommentsPerUser(cas.getCommentsCount(), cas.getUserCount()), 0);
-        Assertions.assertEquals(0.1, cas.averageCommentsPerPost(cas.getCommentsCount(), cas.getPostsCount()), 0.0);
-        Assertions.assertEquals(50, cas.averagePostPerUser(cas.getPostsCount(), cas.getUserCount()), 0);
+        Assertions.assertEquals(5, cas.averageCommentsPerUser(), 0);
+        Assertions.assertEquals(0, cas.averageCommentsPerPost(), 0.0);
+        Assertions.assertEquals(50, cas.averagePostPerUser(), 0);
     }
 
     @Test
@@ -93,9 +93,9 @@ public class testCalculateStatisticsMock {
         //when
         when(statisticsMock.commentsCount()).thenReturn(100);
         //then
-        Assertions.assertEquals(50, cas.averageCommentsPerUser(cas.getCommentsCount(), cas.getUserCount()), 0);
-        Assertions.assertEquals(10, cas.averageCommentsPerPost(cas.getCommentsCount(), cas.getPostsCount()), 0);
-        Assertions.assertEquals(5, cas.averagePostPerUser(cas.getPostsCount(), cas.getUserCount()), 0);
+        Assertions.assertEquals(50, cas.averageCommentsPerUser(), 0);
+        Assertions.assertEquals(10, cas.averageCommentsPerPost(), 0);
+        Assertions.assertEquals(5, cas.averagePostPerUser(), 0);
     }
 
     @Test
@@ -113,9 +113,9 @@ public class testCalculateStatisticsMock {
         usersNames.remove(0);
         when(statisticsMock.usersNames()).thenReturn(usersNames);
         //then
-        Assertions.assertEquals(0, cas.averageCommentsPerUser(cas.getCommentsCount(), cas.getUserCount()), 0);
-        Assertions.assertEquals(10, cas.averageCommentsPerPost(cas.getCommentsCount(), cas.getPostsCount()), 0);
-        Assertions.assertEquals(0, cas.averagePostPerUser(cas.getPostsCount(), cas.getUserCount()), 0);
+        Assertions.assertEquals(0, cas.averageCommentsPerUser(), 0);
+        Assertions.assertEquals(10, cas.averageCommentsPerPost(), 0);
+        Assertions.assertEquals(0, cas.averagePostPerUser(), 0);
     }
 
     @Test
@@ -134,8 +134,8 @@ public class testCalculateStatisticsMock {
         }
         when(statisticsMock.usersNames()).thenReturn(usersNames);
         //then
-        Assertions.assertEquals(1, cas.averageCommentsPerUser(cas.getCommentsCount(), cas.getUserCount()), 0);
-        Assertions.assertEquals(10, cas.averageCommentsPerPost(cas.getCommentsCount(), cas.getPostsCount()), 0);
-        Assertions.assertEquals(0.1, cas.averagePostPerUser(cas.getPostsCount(), cas.getUserCount()), 0);
+        Assertions.assertEquals(1, cas.averageCommentsPerUser(), 0);
+        Assertions.assertEquals(10, cas.averageCommentsPerPost(), 0);
+        Assertions.assertEquals(0, cas.averagePostPerUser(), 0);
     }
 }
