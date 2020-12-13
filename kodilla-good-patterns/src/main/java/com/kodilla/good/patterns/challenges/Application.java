@@ -8,11 +8,8 @@ public class Application {
         User user = new User("Marek", "Bralczyk", true);
         String productName = "Dysk SSD";
         LocalDateTime orderDate = LocalDateTime.now();
-        LocalDateTime deliveryDate = LocalDateTime.of(2020,12,15,12,0);
+        LocalDateTime deliveryDate = LocalDateTime.of(2020, 12, 15, 12, 0);
 
-        ProductOrderService productOrderService = new ProductOrderService();
-        boolean isOrdered = productOrderService.order(user,productName,orderDate,deliveryDate);
-
-        System.out.println(isOrdered);
+        OrderProcessor orderProcessor = new OrderProcessor(new MailService(), new ProductOrderService(), new ProductOrderRepository());
     }
 }
