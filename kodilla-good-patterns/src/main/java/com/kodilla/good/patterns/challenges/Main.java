@@ -7,6 +7,6 @@ public class Main {
         MovieStore movieStore = new MovieStore();
         System.out.println(movieStore.getMovies().entrySet().stream()
                 .flatMap(movie -> movie.getValue().stream())
-                .collect(Collectors.joining(",")));
+                .collect(Collectors.joining("!")));
     }
 }
