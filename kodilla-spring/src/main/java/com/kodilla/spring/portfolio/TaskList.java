@@ -12,4 +12,9 @@ public class TaskList {
     public List<String> getTasks() {
         return tasks;
     }
+
+    public List<String> addTask(String arrayAdd) {
+        tasks.add(arrayAdd);
+        return tasks;
+    }
 }
