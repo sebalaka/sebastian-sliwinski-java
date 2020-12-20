@@ -12,7 +12,7 @@ public class LoggerTestSuite {
     void testGetFileName() {
         //Given
 
-        settingLogName = new Logger();
+        settingLogName = Logger.INSTANCE;
         //When
         String logName = settingLogName.getLastLog();
         System.out.println("Opened: " + logName);
