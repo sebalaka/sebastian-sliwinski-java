@@ -35,7 +35,7 @@ public class BoardTestSuite {
 
         assertEquals(true, board.getToDolist().getTasks().contains("Learn programming 4 hours a day"));
         assertEquals(false, board.getInProgressList().getTasks().contains("Learn programming 2222 minutes already"));
-        assertEquals(1, board.getToDolist().getTasks().size());
+        assertEquals(1, board.getDoneList().getTasks().size());
     }
 }
 
