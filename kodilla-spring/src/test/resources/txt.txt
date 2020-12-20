@@ -1,0 +1,246 @@
+public class Singleton  {
+    private Singleton() {}
+
+    private static class SingletonHolder {
+        public static final Singleton instance = new Singleton();
+    }
+
+    public static Singleton getInstance() {
+        return SingletonHolder.instance;
+    }
+}
+
+public interface Polygon {
+    String getType();
+}
+
+public class PolygonFactory {
+    public Polygon getPolygon(int numberOfSides) {
+        if(numberOfSides == 3) {
+            return new Triangle();
+        }
+        if(numberOfSides == 4) {
+            return new Square();
+        }
+        if(numberOfSides == 5) {
+            return new Pentagon();
+        }
+        if(numberOfSides == 7) {
+            return new Heptagon();
+        }
+        else if(numberOfSides == 8) {
+            return new Octagon();
+        }
+        return null;
+    }
+}
+No
+
+builder
+
+public class BankAccount {
+
+    private String name;
+    private String accountNumber;
+    private String email;
+    private boolean newsletter;
+
+    // constructors/getters
+
+    public static class BankAccountBuilder {
+        // builder code
+    }
+}
+
+public static class BankAccountBuilder {
+
+    private String name;
+    private String accountNumber;
+    private String email;
+    private boolean newsletter;
+
+    public BankAccountBuilder(String name, String accountNumber) {
+        this.name = name;
+        this.accountNumber = accountNumber;
+    }
+
+    public BankAccountBuilder withEmail(String email) {
+        this.email = email;
+        return this;
+    }
+
+    public BankAccountBuilder wantNewsletter(boolean newsletter) {
+        this.newsletter = newsletter;
+        return this;
+    }
+
+    public BankAccount build() {
+        return new BankAccount(this);
+    }
+}
+
+BankAccount newAccount = new BankAccount
+  .BankAccountBuilder("Jon", "22738022275")
+  .withEmail("jon@example.com")
+  .wantNewsletter(true)
+  .build();
+
+
+  public abstract class Tree {
+
+      // ...
+      public abstract Tree copy();
+
+  }
+prototype
+
+  public class PlasticTree extends Tree {
+
+      // ...
+
+      @Override
+      public Tree copy() {
+          PlasticTree plasticTreeClone = new PlasticTree(this.getMass(), this.getHeight());
+          plasticTreeClone.setPosition(this.getPosition());
+          return plasticTreeClone;
+      }
+
+  }
+  public class PineTree extends Tree {
+      // ...
+
+      @Override
+      public Tree copy() {
+          PineTree pineTreeClone = new PineTree(this.getMass(), this.getHeight());
+          pineTreeClone.setPosition(this.getPosition());
+          return pineTreeClone;
+      }
+  }
+
+  // Interfejs strategii deklaruje działania wspólne dla
+  // wszystkich wspieranych wersji jakiegoś algorytmu. Kontekst
+  // korzysta z tego interfejsu w celu wywoływania algorytmów
+  // zdefiniowanych przez konkretne strategie.
+  interface Strategy is
+      method execute(a, b)
+
+  // Konkretne strategie implementują algorytm według poniższego
+  // interfejsu bazowej strategii. Interfejs sprawia, że są one
+  // wymienialne w kontekście.
+  class ConcreteStrategyAdd implements Strategy is
+      method execute(a, b) is
+          return a + b
+
+  class ConcreteStrategySubtract implements Strategy is
+      method execute(a, b) is
+          return a - b
+
+  class ConcreteStrategyMultiply implements Strategy is
+      method execute(a, b) is
+          return a * b
+
+  // Kontekst definiuje interfejs stanowiący przedmiot
+  // zainteresowania klientów.
+  class Context is
+      // Kontekst posiada odniesienie do jednego z obiektów-
+      // strategii. Kontekst nie zna konkretnej klasy strategii.
+      // Powinien współpracować ze wszystkimi strategiami za
+      // pośrednictwem wspólnego interfejsu strategii.
+      private strategy: Strategy
+
+      // Zazwyczaj kontekst przyjmuje strategię poprzez
+      // konstruktor. Udostępnia także funkcję setter
+      // umożliwiającą wymianę strategii na inną w trakcie
+      // działania programu.
+      method setStrategy(Strategy strategy) is
+          this.strategy = strategy
+
+      // Kontekst deleguje jakąś pracę obiektowi-strategii zamiast
+      // samodzielnie implementować wiele wersji algorytmu.
+      method executeStrategy(int a, int b) is
+          return strategy.execute(a, b)
+
+
+  // Kod klienta wybiera jakąś konkretną strategię i przekazuje ją
+  // kontekstowi. Klient powinien być świadom różnic pomiędzy
+  // poszczególnymi strategiami aby móc podjąć właściwy wybór.
+  class ExampleApplication is
+      method main() is
+          Create context object.
+
+          Read first number.
+          Read last number.
+          Read the desired action from user input.
+
+          if (action == addition) then
+              context.setStrategy(new ConcreteStrategyAdd())
+
+          if (action == subtraction) then
+              context.setStrategy(new ConcreteStrategySubtract())
+
+          if (action == multiplication) then
+              context.setStrategy(new ConcreteStrategyMultiply())
+
+          result = context.executeStrategy(First number, Second number)
+
+          Print result.
+
+
+
+
+          // Klasa pyłek zawiera część stanu drzewa. Pola te przechowują
+          // wartości które są unikalne dla każdego drzewa. Przykładowo
+          // nie znajdziemy tu współrzędnych drzewa, ale teksturę oraz
+          // wspólne barwy — owszem. Ponieważ te dane są zazwyczaj
+          // WIELKIE, zmarnowalibyśmy bardzo dużo pamięci operacyjnej,
+          // przechowując ich kopie w obrębie każdego z obiektów-drzew.
+          // Ekstrahujemy więc tekstury, barwy i inne powtarzające się
+          // dane do odrębnego obiektu. Wszystkie drzewa będą posiadać
+          // odniesienie do nowego obiektu.
+          class TreeType is
+              field name
+              field color
+              field texture
+              constructor TreeType(name, color, texture) { ... }
+              method draw(canvas, x, y) is
+                  // 1. Utwórz mapę bitową o danym typie, kolorze i
+                  // teksturze.
+                  // 2. Narysuj mapę bitową na ekranie w punkcie o
+                  // współrzędnych X i Y.
+
+          // Fabryka pyłków podejmuje decyzję o ponownym użyciu
+          // istniejącego obiektu-pyłka lub utworzeniu nowego.
+          class TreeFactory is
+              static field treeTypes: collection of tree types
+              static method getTreeType(name, color, texture) is
+                  type = treeTypes.find(name, color, texture)
+                  if (type == null)
+                      type = new TreeType(name, color, texture)
+                      treeTypes.add(type)
+                  return type
+
+          // Obiekt-kontekst zawiera zewnętrzne elementy stanu drzewa.
+          // Aplikacja może stworzyć miliardy drzew, bo są one bardzo
+          // małe: opisują je dwie liczby całkowite oznaczające
+          // współrzędne i jedno pole przechowujące odniesienie do obiektu
+          // zawierającego opis stanu zewnętrznego.
+          class Tree is
+              field x,y
+              field type: TreeType
+              constructor Tree(x, y, type) { ... }
+              method draw(canvas) is
+                  type.draw(canvas, this.x, this.y)
+
+          // Klasy Tree i Forest są klientami pyłku. Możesz je połączyć,
+          // jeśli nie zamierzasz dalej rozwijać klasy Tree.
+          class Forest is
+              field trees: collection of Trees
+
+              method plantTree(x, y, name, color, texture) is
+                  type = TreeFactory.getTreeType(name, color, texture)
+                  tree = new Tree(x, y, type)
+                  trees.add(tree)
+
+              method draw(canvas) is
+                  foreach (tree in trees) do
+                      tree.draw(canvas)
