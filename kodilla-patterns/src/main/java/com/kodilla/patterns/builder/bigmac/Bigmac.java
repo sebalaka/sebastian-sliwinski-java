@@ -48,13 +48,6 @@ public class Bigmac {
         this.ingredients = new ArrayList<>(ingredients);
     }
 
-    public Bigmac(final String bun, final int burgers, final String sauce, final String... ingredients) {
-        this.bun = bun;
-        this.burgers = burgers;
-        this.sauce = sauce;
-        this.ingredients.addAll(Arrays.asList(ingredients));
-    }
-
     public String getBun() {
         return bun;
     }
