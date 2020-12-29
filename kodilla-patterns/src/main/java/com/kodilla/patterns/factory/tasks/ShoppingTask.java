@@ -4,13 +4,13 @@ public class ShoppingTask implements Task {
     private final String taskName;
     private final String whatToBuy;
     private final double quantity;
-    private boolean isExecuted;
+    private boolean taskExecuted;
 
     public ShoppingTask(String taskName, String whatToBuy, double quantity) {
         this.taskName = taskName;
         this.whatToBuy = whatToBuy;
         this.quantity = quantity;
-        this.isExecuted = false;
+        this.taskExecuted = false;
     }
 
     public String getTaskName() {
@@ -26,10 +26,10 @@ public class ShoppingTask implements Task {
     }
 
     public void executeTask() {
-        isExecuted = true;
+        taskExecuted = true;
     }
 
     public boolean isTaskExecuted() {
-        return isExecuted;
+        return taskExecuted;
     }
 }
