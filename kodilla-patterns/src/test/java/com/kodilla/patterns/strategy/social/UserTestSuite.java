@@ -1,17 +1,12 @@
 package com.kodilla.patterns.strategy.social;
 
-import com.kodilla.patterns.strategy.CorporateCustomer;
-import com.kodilla.patterns.strategy.Customer;
-import com.kodilla.patterns.strategy.IndividualCustomer;
-import com.kodilla.patterns.strategy.IndividualYoungCustomer;
-import com.kodilla.patterns.strategy.predictors.AggressivePredictor;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class UserTestSuite {
     @Test
-    void testDefaultInvestingStrategies() {
+    void testDefaultSharingStrategies() {
         //Given
         User user1 = new Millenials("Marek Milenials");
         User user2 = new YGeneration("Jadzia Ygen");
@@ -32,7 +27,7 @@ public class UserTestSuite {
     }
 
     @Test
-    void testIndividualInvestingStrategy() {
+    void testIndividualSharingStrategy() {
         //Given
         User user4 = new Millenials("Dariusz Nowak");
 
