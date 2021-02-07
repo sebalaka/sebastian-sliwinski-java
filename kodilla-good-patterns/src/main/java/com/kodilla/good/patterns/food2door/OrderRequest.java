@@ -2,16 +2,13 @@ package com.kodilla.good.patterns.food2door;
 
 import java.util.Map;
 
-public class OrderDto {
+public class OrderRequest {
     private final Producer producer;
     private final Map<Product, Integer> productsOrdered;
-    private final boolean isOrdered;
 
-
-    public OrderDto(Producer producer, Map<Product, Integer> productsOrdered, boolean isOrdered) {
+    public OrderRequest(Producer producer, Map<Product, Integer> productsOrdered) {
         this.producer = producer;
         this.productsOrdered = productsOrdered;
-        this.isOrdered = isOrdered;
     }
 
     public Producer getProducer() {
@@ -22,7 +19,4 @@ public class OrderDto {
         return productsOrdered;
     }
 
-    public boolean isOrdered() {
-        return isOrdered;
-    }
 }
