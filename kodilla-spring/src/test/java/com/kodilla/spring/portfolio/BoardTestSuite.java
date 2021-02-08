@@ -17,11 +17,11 @@ public class BoardTestSuite {
         ApplicationContext context = new AnnotationConfigApplicationContext(BoardConfig.class);
         Board board = context.getBean(Board.class);
 
-        TaskList getToDoList = context.getBean("toDoList", TaskList.class);
+        TaskList getToDoList = board.getToDolist();
         getToDoList.addTask("Learn programming 4 hours a day");
-        TaskList getinProgressList = context.getBean("inProgressList", TaskList.class);
+        TaskList getinProgressList = board.getInProgressList();
         getinProgressList.addTask("Learn programming 20 minutes already");
-        TaskList getDoneList = context.getBean("doneList", TaskList.class);
+        TaskList getDoneList = board.getDoneList();
         getDoneList.addTask("Clean house before christmas");
 
 
